@@ -1,0 +1,25 @@
+<head>
+    <style> body { margin: 0; } </style>
+  
+    <script src="//unpkg.com/force-graph"></script>
+    <!--<script src="../../dist/force-graph.js"></script>-->
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  
+  <body>
+    <div id="graph"></div>
+  
+    <script>
+      fetch('./data.json').then(res => res.json()).then(data => {
+        const Graph = ForceGraph()
+        (document.getElementById('graph'))
+          .graphData(data)
+          .nodeId('id')
+          .nodeVal('val')
+          .nodeLabel('id')
+          .nodeAutoColorBy('group')
+          .linkSource('source')
+          .linkTarget('target')
+      });
+    </script>
+  </body>
